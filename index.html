@@ -61,26 +61,28 @@
         <h1>Warframe Daily and Weekly Checklist</h1>
         
         <h2>Daily Missions</h2>
+        <h3 id="daily-timer"></h3>
         <ul id="daily-missions">
             <li><input type="checkbox" id="login"><label for="login">Login</label></li>
-            <li><input type="checkbox" id="crafting"><label for="crafting">Crafting (Forma, Fieldron, etc.)</label></li>
-            <li><input type="checkbox" id="syndicate-standing"><label for="syndicate-standing">Syndicate Standing</label></li>
-            <li><input type="checkbox" id="first-mission"><label for="first-mission">First Mission 2x Credit (Dark Sector)</label></li>
-
+            <li><input type="checkbox" id="foundry"><label for="foundry">Foundry (Forma, Fieldron, etc.)</label></li>
+            <li><input type="checkbox" id="syndicate-standing"><label for="syndicate-standing">Faction Syndicate Standing</label></li>
+            <li><input type="checkbox" id="first-mission"><label for="first-mission">First Mission 2x Credit Bonus (Sortie 3, Dark Sector)</label></li>
             <li><input type="checkbox" id="sortie"><label for="sortie">Sortie</label></li>
             <li><input type="checkbox" id="focus"><label for="focus">Focus</label></li>
             <li><input type="checkbox" id="steel-path"><label for="steel-path">Steel Path Incursions</label></li>
             <li><input type="checkbox" id="nightwave-daily"><label for="nightwave-daily">Nightwave Daily</label></li>
             <li><input type="checkbox" id="kuva-flood"><label for="kuva-flood">Kuva Flood</label></li>
-            <li>World Syndicate Standing
+            <li>Neutral Syndicate Standing
                 <ul class="syndicate-group">
-                    <li><input type="checkbox" id="ostrons"><label for="ostrons">Ostrons (Cetus, Earth)</label></li>
+                    <li><input type="checkbox" id="conclave-daily"><label for="conclave-daily">Conclave Challenges (Conclave Hall, Relay) (Reset: 7:15 PM GMT)</label></li>
+                    <li><input type="checkbox" id="simaris"><label for="simaris">Cephalon Simaris (Sanctuary, Relay)</label></li>
+                    <li><input type="checkbox" id="ostron"><label for="ostron">Ostron (Cetus, Earth)</label></li>
+                    <li><input type="checkbox" id="the-quills"><label for="the-quills">The Quills (Orokin Tower, Cetus, Earth)</label></li>
                     <li><input type="checkbox" id="solaris-united"><label for="solaris-united">Solaris United (Fortuna, Venus)</label></li>
-                    <li><input type="checkbox" id="entrati"><label for="entrati">Entrati (Necralisk, Deimos)</label></li>
-                    <li><input type="checkbox" id="the-quills"><label for="the-quills">The Quills (Cetus, Earth)</label></li>
                     <li><input type="checkbox" id="vox-solaris"><label for="vox-solaris">Vox Solaris (Fortuna, Venus)</label></li>
-                    <li><input type="checkbox" id="necraloid"><label for="necraloid">Necraloid (Necralisk, Deimos)</label></li>
                     <li><input type="checkbox" id="ventkids"><label for="ventkids">Ventkids (Fortuna, Venus)</label></li>
+                    <li><input type="checkbox" id="entrati"><label for="entrati">Entrati (Necralisk, Deimos)</label></li>
+                    <li><input type="checkbox" id="necraloid"><label for="necraloid">Necraloid (Necralisk, Deimos)</label></li>
                     <li><input type="checkbox" id="holdfasts"><label for="holdfasts">The Holdfasts (Chrysalith, Zariman Ten Zero)</label></li>
                     <li><input type="checkbox" id="cavia"><label for="cavia">Cavia (Sanctum Anatomica, Necralisk)</label></li>
                     <li><input type="checkbox" id="hex"><label for="hex">The Hex (Höllvania Central Mall, Höllvania)</label></li>
@@ -90,26 +92,26 @@
         <button class="reset-button" onclick="resetChecklist('daily')">Reset Daily Missions</button>
     
         <h2>Weekly Missions</h2>
+        <h3 id="weekly-timer"></h3>
         <ul id="weekly-missions">
             <li>Vendors
                 <ul class="syndicate-group">
                     <li><input type="checkbox" id="palladino"><label for="palladino">Palladino (Iron Wake, Earth)</label></li>
                     <li><input type="checkbox" id="archimedean-yonta"><label for="archimedean-yonta">Archimedean Yonta (Chrysalith, Zariman Ten Zero)</label></li>
                     <li><input type="checkbox" id="acrithis"><label for="acrithis">Acrithis (Dormizone, Zariman Ten Zero)</label></li>
-                    <li><input type="checkbox" id="teshin"><label for="teshin">Teshin (Relay)</label></li>
+                    <li><input type="checkbox" id="teshin"><label for="teshin">Teshin (Conclave Hall, Relay)</label></li>
+                    <li><input type="checkbox" id="shiny-treasures"><label for="shiny-treasures">Bird 3 (Sanctum Anatomica, Necralisk)</label></li>
                 </ul>
             </li>
             <li><input type="checkbox" id="nightwave-weekly"><label for="nightwave-weekly">Nightwave Weekly</label></li>
-            <li><input type="checkbox" id="maroo"><label for="maroo">Maroo's Ayatan Treasure Hunt</label></li>
-
+            <li><input type="checkbox" id="maroo"><label for="maroo">Ayatan Treasure Hunt (Maroo's Bazar, Mars)</label></li>
             <li><input type="checkbox" id="archon-hunt"><label for="archon-hunt">Archon Hunt</label></li>
-            <li><input type="checkbox" id="kahls-garrison"><label for="kahls-garrison">Kahl's Garrison (Drifter's Camp, Earth)</label></li>
-            <li><input type="checkbox" id="duviri-cirquit"><label for="duviri-cirquit">Duviri Cirquit</label></li>
+            <li><input type="checkbox" id="break-narmer"><label for="break-narmer">Break Narmer (Drifter's Camp, Earth)</label></li>
+            <li><input type="checkbox" id="duviri-circuit"><label for="duviri-circuit">Duviri Circuit</label></li>
             <li><input type="checkbox" id="netracells"><label for="netracells">Netracells (3/5 Search Pulses) (Tagfer, Sanctum Anatomica, Necralisk)</label></li>
-            <li><input type="checkbox" id="deep-archimedea"><label for="deep-archimedea">(Elite) Deep Archimedea (2/5 Search Pulses) (Necraloid, Sanctum Anatomica, Necralisk)</label></li>
-            <li><input type="checkbox" id="shiny-treasures"><label for="shiny-treasures">Shiny Treasures (Bird 3, Sanctum Anatomica, Necralisk)</label></li>
+            <li><input type="checkbox" id="deep-archimedea"><label for="deep-archimedea">(Elite) Deep Archimedea (2/5 Search Pulses) (Loid, Sanctum Anatomica, Necralisk)</label></li>
             <li><input type="checkbox" id="pom-calendar"><label for="pom-calendar">POM-2 Calendar (Höllvania Central Mall, Höllvania)</label></li>
-            <li><input type="checkbox" id="simaris-conclave"><label for="simaris-conclave">Cephalon Simaris, Conclave</label></li>
+            <li><input type="checkbox" id="conclave-weekly"><label for="conclave-weekly">Conclave Missions (Conclave Hall, Relay) (Reset: every Friday, 12:00 AM GMT)</label></li>
         </ul>
         <button class="reset-button" onclick="resetChecklist('weekly')">Reset Weekly Missions</button>
     </div>
@@ -166,6 +168,39 @@
 
         // Initialize checklist
         loadChecklist();
+                // Timer functions
+                function updateDailyTimer() {
+            const now = new Date();
+            const nextReset = new Date();
+            nextReset.setUTCHours(0, 0, 0, 0);
+            if (now >= nextReset) {
+                nextReset.setUTCDate(nextReset.getUTCDate() + 1);
+            }
+            const diff = nextReset - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('daily-timer').innerText = `Reset in: ${hours}h ${minutes}m`;
+        }
+
+        function updateWeeklyTimer() {
+            const now = new Date();
+            const nextReset = new Date();
+            nextReset.setUTCDate(7 + nextReset.getUTCDate() + (1 + 7 - nextReset.getUTCDay()) % 7 || 7);
+            nextReset.setUTCHours(0, 0, 0, 0);
+            const diff = nextReset - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById('weekly-timer').innerText = `Reset in: ${days}d ${hours}h ${minutes}m`;
+        }
+
+        // Update timers every second
+        setInterval(updateDailyTimer, 1000);
+        setInterval(updateWeeklyTimer, 1000);
+
+        // Initial call to display timers immediately
+        updateDailyTimer();
+        updateWeeklyTimer();
     </script>
 </body>
 </html>
