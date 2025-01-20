@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warframe Checklist</title>
+    <link rel="icon" href="https://www-static.warframe.com/images/warframe/favicon.ico" sizes="any">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1b1b1b;
+            color: #e2e2e2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #282828;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2 {
+            color: #ffcc00;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        label {
+            cursor: pointer;
+        }
+        .reset-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .reset-button:hover {
+            background-color: #e64a19;
+        }
+        .syndicate-group {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Warframe Daily and Weekly Checklist</h1>
+        
+        <h2>Daily Missions</h2>
+        <ul id="daily-missions">
+            <li><input type="checkbox" id="login"><label for="login">Login</label></li>
+            <li><input type="checkbox" id="crafting"><label for="crafting">Crafting (Forma, Fieldron, etc.)</label></li>
+            <li><input type="checkbox" id="syndicate-standing"><label for="syndicate-standing">Syndicate Standing</label></li>
+            <li><input type="checkbox" id="first-mission"><label for="first-mission">First Mission 2x Credit (Dark Sector)</label></li>
+
+            <li><input type="checkbox" id="sortie"><label for="sortie">Sortie</label></li>
+            <li><input type="checkbox" id="focus"><label for="focus">Focus</label></li>
+            <li><input type="checkbox" id="steel-path"><label for="steel-path">Steel Path Incursions</label></li>
+            <li><input type="checkbox" id="nightwave-daily"><label for="nightwave-daily">Nightwave Daily</label></li>
+            <li><input type="checkbox" id="kuva-flood"><label for="kuva-flood">Kuva Flood</label></li>
+            <li>World Syndicate Standing
+                <ul class="syndicate-group">
+                    <li><input type="checkbox" id="ostrons"><label for="ostrons">Ostrons (Cetus, Earth)</label></li>
+                    <li><input type="checkbox" id="solaris-united"><label for="solaris-united">Solaris United (Fortuna, Venus)</label></li>
+                    <li><input type="checkbox" id="entrati"><label for="entrati">Entrati (Necralisk, Deimos)</label></li>
+                    <li><input type="checkbox" id="the-quills"><label for="the-quills">The Quills (Cetus, Earth)</label></li>
+                    <li><input type="checkbox" id="vox-solaris"><label for="vox-solaris">Vox Solaris (Fortuna, Venus)</label></li>
+                    <li><input type="checkbox" id="necraloid"><label for="necraloid">Necraloid (Necralisk, Deimos)</label></li>
+                    <li><input type="checkbox" id="ventkids"><label for="ventkids">Ventkids (Fortuna, Venus)</label></li>
+                    <li><input type="checkbox" id="holdfasts"><label for="holdfasts">The Holdfasts (Chrysalith, Zariman Ten Zero)</label></li>
+                    <li><input type="checkbox" id="cavia"><label for="cavia">Cavia (Sanctum Anatomica, Necralisk)</label></li>
+                    <li><input type="checkbox" id="hex"><label for="hex">The Hex (Höllvania Central Mall, Höllvania)</label></li>
+                </ul>
+            </li>
+        </ul>
+        <button class="reset-button" onclick="resetChecklist('daily')">Reset Daily Missions</button>
+    
+        <h2>Weekly Missions</h2>
+        <ul id="weekly-missions">
+            <li>Vendors
+                <ul class="syndicate-group">
+                    <li><input type="checkbox" id="palladino"><label for="palladino">Palladino (Iron Wake, Earth)</label></li>
+                    <li><input type="checkbox" id="archimedean-yonta"><label for="archimedean-yonta">Archimedean Yonta (Chrysalith, Zariman Ten Zero)</label></li>
+                    <li><input type="checkbox" id="acrithis"><label for="acrithis">Acrithis (Dormizone, Zariman Ten Zero)</label></li>
+                    <li><input type="checkbox" id="teshin"><label for="teshin">Teshin (Relay)</label></li>
+                </ul>
+            </li>
+            <li><input type="checkbox" id="nightwave-weekly"><label for="nightwave-weekly">Nightwave Weekly</label></li>
+            <li><input type="checkbox" id="maroo"><label for="maroo">Maroo's Ayatan Treasure Hunt</label></li>
+
+            <li><input type="checkbox" id="archon-hunt"><label for="archon-hunt">Archon Hunt</label></li>
+            <li><input type="checkbox" id="kahls-garrison"><label for="kahls-garrison">Kahl's Garrison (Drifter's Camp, Earth)</label></li>
+            <li><input type="checkbox" id="duviri-cirquit"><label for="duviri-cirquit">Duviri Cirquit</label></li>
+            <li><input type="checkbox" id="netracells"><label for="netracells">Netracells (3/5 Search Pulses) (Tagfer, Sanctum Anatomica, Necralisk)</label></li>
+            <li><input type="checkbox" id="deep-archimedea"><label for="deep-archimedea">(Elite) Deep Archimedea (2/5 Search Pulses) (Necraloid, Sanctum Anatomica, Necralisk)</label></li>
+            <li><input type="checkbox" id="shiny-treasures"><label for="shiny-treasures">Shiny Treasures (Bird 3, Sanctum Anatomica, Necralisk)</label></li>
+            <li><input type="checkbox" id="pom-calendar"><label for="pom-calendar">POM-2 Calendar (Höllvania Central Mall, Höllvania)</label></li>
+            <li><input type="checkbox" id="simaris-conclave"><label for="simaris-conclave">Cephalon Simaris, Conclave</label></li>
+        </ul>
+        <button class="reset-button" onclick="resetChecklist('weekly')">Reset Weekly Missions</button>
+    </div>
+
+    <script>
+        const dailyMissions = document.querySelectorAll('#daily-missions input[type="checkbox"]');
+        const weeklyMissions = document.querySelectorAll('#weekly-missions input[type="checkbox"]');
+
+        // Load checklist state from localStorage
+        function loadChecklist() {
+            dailyMissions.forEach(item => {
+                item.checked = localStorage.getItem(item.id) === 'true';
+            });
+
+            weeklyMissions.forEach(item => {
+                item.checked = localStorage.getItem(item.id) === 'true';
+            });
+        }
+
+        // Save checklist state to localStorage
+        function saveChecklist() {
+            dailyMissions.forEach(item => {
+                localStorage.setItem(item.id, item.checked);
+            });
+
+            weeklyMissions.forEach(item => {
+                localStorage.setItem(item.id, item.checked);
+            });
+        }
+
+        // Reset checklist state
+        function resetChecklist(type) {
+            if (type === 'daily') {
+                dailyMissions.forEach(item => {
+                    item.checked = false;
+                    localStorage.setItem(item.id, false);
+                });
+            } else if (type === 'weekly') {
+                weeklyMissions.forEach(item => {
+                    item.checked = false;
+                    localStorage.setItem(item.id, false);
+                });
+            }
+        }
+
+        // Event listeners for saving state
+        dailyMissions.forEach(item => {
+            item.addEventListener('change', saveChecklist);
+        });
+
+        weeklyMissions.forEach(item => {
+            item.addEventListener('change', saveChecklist);
+        });
+
+        // Initialize checklist
+        loadChecklist();
+    </script>
+</body>
+</html>
