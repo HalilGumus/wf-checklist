@@ -205,7 +205,7 @@
             const daysUntilMonday = (8 - dayOfWeek) % 7 || 7;
 
             // If it's already Monday and after 1 AM UTC, add 7 days
-            if (dayOfWeek === 1 && now.getUTCHours() >= 1) {
+            if (dayOfWeek === 1 && now.getUTCHours() >= 0) {
                 nextReset.setUTCDate(nextReset.getUTCDate() + 7);
             } else if (dayOfWeek !== 1) {
                 nextReset.setUTCDate(nextReset.getUTCDate() + daysUntilMonday);
