@@ -191,13 +191,31 @@
 
         function updateWeeklyTimer() {
             const now = new Date();
-            const nextReset = new Date();
-            nextReset.setUTCDate(7 + nextReset.getUTCDate() + (1 + 7 - nextReset.getUTCDay()) % 7 || 7);
-            nextReset.setUTCHours(0, 0, 0, 0);
+
+            // Create a new date representing the upcoming Monday at 01:00 AM UTC
+            const nextReset = new Date(Date.UTC(
+                now.getUTCFullYear(),
+                now.getUTCMonth(),
+                now.getUTCDate(),
+                0, 0, 0, 0 // 01:00 AM UTC
+            ));
+
+            // Calculate how many days until next Monday
+            const dayOfWeek = now.getUTCDay(); // 0 (Sun) - 6 (Sat)
+            const daysUntilMonday = (8 - dayOfWeek) % 7 || 7;
+
+            // If it's already Monday and after 1 AM UTC, add 7 days
+            if (dayOfWeek === 1 && now.getUTCHours() >= 1) {
+                nextReset.setUTCDate(nextReset.getUTCDate() + 7);
+            } else if (dayOfWeek !== 1) {
+                nextReset.setUTCDate(nextReset.getUTCDate() + daysUntilMonday);
+            }
+
             const diff = nextReset - now;
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
             document.getElementById('weekly-timer').innerText = `Reset in: ${days}d ${hours}h ${minutes}m`;
         }
 
