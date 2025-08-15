@@ -6,6 +6,38 @@
     <title>Warframe Checklist</title>
     <link rel="icon" href="https://www-static.warframe.com/images/warframe/favicon.ico" sizes="any">
     <style>
+        input[type="checkbox"] {
+            /* Remove default style */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #007bff; /* Blue border */
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            background-color: white;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        input[type="checkbox"]:checked {
+            background-color: #007bff; /* Blue fill */
+            border-color: #007bff;
+        }
+        input[type="checkbox"]:checked::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 0px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #1b1b1b;
