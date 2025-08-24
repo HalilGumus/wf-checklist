@@ -107,7 +107,7 @@
             <li><input type="checkbox" id="foundry"><label for="foundry">Foundry (Forma, Fieldron, etc.)</label></li>
             <li><input type="checkbox" id="syndicate-standing"><label for="syndicate-standing">Faction Syndicate Standing</label></li>
             <li><input type="checkbox" id="first-mission"><label for="first-mission">First Mission 2x Credit Bonus (Sortie 3, Dark Sector)</label></li>
-            <li><input type="checkbox" id="sortie"><label for="sortie">Sortie</label><p id="sortie-timer"></p></li>
+            <li><input type="checkbox" id="sortie"><label for="sortie" id="sortie-timer"></label></li>
             <li><input type="checkbox" id="focus"><label for="focus">Focus</label></li>
             <li><input type="checkbox" id="steel-path"><label for="steel-path">Steel Path Incursions</label></li>
             <li><input type="checkbox" id="nightwave-daily"><label for="nightwave-daily">Nightwave Daily</label></li>
@@ -238,7 +238,7 @@
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             document.getElementById('sortie-timer').innerText = 
-                ` Resets in: ${hours}h ${minutes}m ${seconds}s`;
+                `Sortie Resets in: ${hours}h ${minutes}m`;
         }
 
         function updateWeeklyTimer() {
