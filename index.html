@@ -107,7 +107,7 @@
             <li><input type="checkbox" id="foundry"><label for="foundry">Foundry (Forma, Fieldron, etc.)</label></li>
             <li><input type="checkbox" id="syndicate-standing"><label for="syndicate-standing">Faction Syndicate Standing</label></li>
             <li><input type="checkbox" id="first-mission"><label for="first-mission">First Mission 2x Credit Bonus (Sortie 3, Dark Sector)</label></li>
-            <li><input type="checkbox" id="sortie"><label for="sortie">Sortie</label></li>
+            <li><input type="checkbox" id="sortie"><label for="sortie">Sortie</label><p id="sortie-timer"></p></li>
             <li><input type="checkbox" id="focus"><label for="focus">Focus</label></li>
             <li><input type="checkbox" id="steel-path"><label for="steel-path">Steel Path Incursions</label></li>
             <li><input type="checkbox" id="nightwave-daily"><label for="nightwave-daily">Nightwave Daily</label></li>
@@ -208,8 +208,8 @@
 
         // Initialize checklist
         loadChecklist();
-                // Timer functions
-                function updateDailyTimer() {
+        // Timer functions
+        function updateDailyTimer() {
             const now = new Date();
             const nextReset = new Date();
             nextReset.setUTCHours(0, 0, 0, 0);
@@ -220,6 +220,25 @@
             const hours = Math.floor(diff / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             document.getElementById('daily-timer').innerText = `Reset in: ${hours}h ${minutes}m`;
+        }
+
+        function updateSortieTimer() {
+            const now = new Date();
+            const nextReset = new Date();
+            nextReset.setUTCHours(16, 0, 0, 0); // 16:00 UTC
+
+            // If we've already passed today's reset, move to tomorrow
+            if (now >= nextReset) {
+                nextReset.setUTCDate(nextReset.getUTCDate() + 1);
+            }
+
+            const diff = nextReset - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('sortie-timer').innerText = 
+                ` Resets in: ${hours}h ${minutes}m ${seconds}s`;
         }
 
         function updateWeeklyTimer() {
@@ -254,10 +273,12 @@
 
         // Update timers every second
         setInterval(updateDailyTimer, 1000);
+        setInterval(updateSortieTimer, 1000);
         setInterval(updateWeeklyTimer, 1000);
 
         // Initial call to display timers immediately
         updateDailyTimer();
+        updateSortieTimer();
         updateWeeklyTimer();
     </script>
 </body>
